@@ -45,7 +45,12 @@ public class LoginTest extends TestBase{
         Assert.assertEquals( loginPage.getLoginErrorText(email,password), "Need help?");
     }
 
-
+    @Test(priority=4)
+    public void blankEmailPasswordTest() throws  InterruptedException {
+        String email = prop.getProperty("blankemail");
+        String password = prop.getProperty("blankpassword");
+        Assert.assertEquals(loginPage.getLoginErrorText(email, password), "Need help?");
+    }
 
     @AfterMethod
     public void tearDown(){
